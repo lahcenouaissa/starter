@@ -47,12 +47,21 @@
                         <li class="nav-link">
                             <a href="{{url('offers/create')}}" class="nav-link"> Offers </a>
                         </li>
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li class="nav-link">
+                                <a rel="alternate" class="nav-link" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
                     @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
+
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -65,6 +74,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
+
                     @else
                         <li class="nav-item dropdown">
 
@@ -80,7 +90,8 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      class="d-none">
                                     @csrf
                                 </form>
                             </div>
