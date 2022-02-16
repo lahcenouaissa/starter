@@ -45,7 +45,7 @@
                 <ul class="navbar-nav me-auto">
                     @if(Auth::check())
                         <li class="nav-link">
-                            <a href="{{url('offers/create')}}" class="nav-link"> Offers </a>
+                            <a href="{{url('offers/index')}}" class="nav-link"> Offers </a>
                         </li>
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <li class="nav-link">

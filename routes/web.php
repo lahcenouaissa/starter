@@ -35,7 +35,12 @@ Route::get('/callback/{service}', 'SocialController@callback');
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
     Route::group(['prefix' => 'offers'], function () {
         Route::post('store', 'CrudController@store')->middleware('auth')->name('offer.store');
-        Route::get('create', 'CrudController@create')->middleware('auth');
+        Route::get('create', 'CrudController@create')->middleware('auth')->name('offer.create');
+        Route::get('index', 'CrudController@getAllOffers')->middleware('auth')->name('offer.index');
+        Route::get('edit/{id}', 'CrudController@editOffer')->middleware('auth')->name("offer.edit");
+        Route::post('update/{id}', 'CrudController@updateOffer')->middleware('auth')->name("offer.update");
+        Route::get('delete/{id}', 'CrudController@deleteOffer')->middleware('auth')->name("offer.delete");
+
     });
 
 });

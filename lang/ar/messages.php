@@ -16,6 +16,13 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'offername'=>'اسم العرض مطلوب'
+    'offername'=>'اسم العرض مطلوب',
+    'offer_title'=>'أضف عرض جديد',
+    'Save Offer'=>'حفظ العرض',
+    'offer_liste'=>'قائمة العروض',
+    'offer_title_edit'=>'تعديل العرض',
+    'Back_to_liste_offer'=>'عودة إلى القائمة',
+
+
 
 ];
